@@ -11,6 +11,10 @@
 #include <string>
 using namespace std;
 
+
+// function declarations
+int ResizeArray(User* &OldArray, int OldSize);
+
 int main()
 {
     // Set up files
@@ -44,14 +48,25 @@ int main()
     }
     
     // variables for file handling
-    int num_users = 0;
+    int num_users = 0, user_array_size = 5; // start the array at 5
     typedef User* UserPtr;
-    UserPtr user_array = new User[num_users];
+    UserPtr user_array = new User[user_array_size];
     while (!user_info_fh.eof())
            {
                User transit;
-               
+               user_info_fh >> transit;    //read in a user, check if array need be resized
+               if ((num_users + 1) > user_array_size)
+               {
+                   user_array_size = ResizeArray(user_array, user_array_size);
+               }
+               user_array[num_users] = transit;
+               num_users++;
            }
+    
+    for (int i = 0; i < num_users; i++)
+    {
+        users2_fh << user_array[i];
+    }
     
     user_info_fh.close();
     checkouts_fh.close();
@@ -64,15 +79,19 @@ int main()
 int ResizeArray(User* &OldArray, int OldSize)
 {
     int TempSize = OldSize * 2;
-    if (User* TempPtr = new User[TempSize])
+    if (User* Newptr = new User[TempSize])
     {
         for (int i = 0; i < OldArray->CheckoutCount(); i++)
         {
-            TempPtr[i] = OldArray[i];
+            Newptr[i] = OldArray[i];
         }
         delete [] OldArray;
-        OldArray = TempPtr;
+        OldArray = Newptr;
         return TempSize;
+    }
+    else
+    {
+        throw (User_exception("User array cannot be resized"));
     }
 }
 

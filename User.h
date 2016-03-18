@@ -20,7 +20,7 @@ class User
     
 private:
     string u_first, u_last;
-    stringptr s_array_ptr = nullptr;
+    string* s_array_ptr;
     unsigned int ID, books_out, arr_size;
     bool ResizeArray() ; // Need to fill and write code for function
     
@@ -28,7 +28,7 @@ public:
     
     // Constructor and class utility functions
     User(string first = "", string last = "", unsigned int ID_num = 0)
-        { u_first = first; u_last = last; ID = ID_num;}
+    { u_first = first; u_last = last; ID = ID_num; s_array_ptr = nullptr;}
     int GetIDNumber() const {return ID;}
     string GetFirstName() const {return u_first;}
     string GetLastName() const {return u_last;}

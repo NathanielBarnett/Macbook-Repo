@@ -14,10 +14,13 @@ using namespace std;
 
 bool User::ResizeArray()
 {
-    int TempSize = arr_size * 2;
-    if (stringptr TempPtr = new string[TempSize])
-    {
-        for (int i = 0; i < books_out; i++)
+    int TempSize;
+    do{
+        TempSize = arr_size * 2;
+    }while(TempSize < books_out);
+    stringptr TempPtr = new string[TempSize];
+    
+    for (int i = 0; i < books_out; i++)
         {
             TempPtr[i] = s_array_ptr[i];
         }
@@ -25,8 +28,7 @@ bool User::ResizeArray()
         s_array_ptr = TempPtr;
         arr_size = TempSize;
         return true;
-    }
-    throw (User_exception("Baconator"));
+    
 }
 
 
@@ -48,7 +50,7 @@ bool User::CheckOut(const string& BookIDCode)
 {
     bool checked_out = false;
     
-    if (arr_size <= 0)  // if array is not yet allocated
+    if (s_array_ptr == nullptr || arr_size == 0)  // if array is not yet allocated
     {
         arr_size = 5;
         s_array_ptr = new string[arr_size];
@@ -148,16 +150,16 @@ const ostream& operator<<(ostream& output, const User& Patron)
 
 const istream& operator>>(istream& input, User& Patron)
 {
-    
+    int Books_Needed;
     Patron.Clear();
-    input >> Patron.ID >> Patron.u_first >> Patron.u_last >> Patron.books_out;
-    if (Patron.books_out > 0)
+    input >> Patron.ID >> Patron.u_first >> Patron.u_last >> Books_Needed;
+    if (Books_Needed > 0)
     {
         string Book;
-        for (int i = 0; i < Patron.books_out; i++)
+        for (int i = 0; i < Books_Needed; i++)
         {
             input >> Book;
-            Patron.CheckIn(Book);
+            Patron.CheckOut(Book);
         }
     }
     return input;
@@ -213,16 +215,17 @@ User::~User()
 
 User::User(const User& rhs)
 {
+    s_array_ptr = nullptr;
     *this = rhs;
 }
 
 const User& User::operator=(const User& rhs)
 {
-    if (*this != rhs)
+    if (this != &rhs)
     {
         this->~User();  // Take care of dynamic data
         u_first = rhs.u_first;  // Copy over static data
-        u_last = rhs.u_last;
+        //u_last = rhs.u_last;
         ID = rhs.ID;
         books_out = rhs.books_out;
         arr_size = rhs.arr_size;
@@ -235,7 +238,6 @@ const User& User::operator=(const User& rhs)
             }
         }
     }
-    
     return *this;   // Return the updated User object
 }
 
