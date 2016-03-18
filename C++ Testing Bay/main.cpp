@@ -7,9 +7,23 @@
 //
 #include "User.h"
 #include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
 
-int main() {
-    // insert code here...
-    std::cout << "Hello, World!\n";
-    return 0;
+int main()
+{
+    // Set up files
+    ifstream user_info_fh;
+    user_info_fh.open("users.txt");
+    ofstream 
+    if (!user_info_fh.is_open())
+    {
+        cerr << "users.txt was unable to open" << endl;
+        exit(1);
+    }
+    
+    
 }
+
+

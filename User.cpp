@@ -12,6 +12,24 @@ using namespace std;
 
 // Class function definitions
 
+bool User::ResizeArray()
+{
+    int TempSize = arr_size * 2;
+    if (stringptr TempPtr = new string[TempSize])
+    {
+        for (int i = 0; i < books_out; i++)
+        {
+            TempPtr[i] = s_array_ptr[i];
+        }
+        delete [] s_array_ptr;
+        s_array_ptr = TempPtr;
+        arr_size = TempSize;
+        return true;
+    }
+    throw (User_exception("Baconator"));
+}
+
+
 string User::GetFullName() const
 {
     string f_name = u_last + ", " + u_first;
@@ -188,8 +206,37 @@ User::~User()
 {
     if (s_array_ptr != nullptr)
     {
-        
+        delete [] s_array_ptr;
+        s_array_ptr = nullptr;
     }
+}
+
+User::User(const User& rhs)
+{
+    *this = rhs;
+}
+
+const User& User::operator=(const User& rhs)
+{
+    if (*this != rhs)
+    {
+        this->~User();  // Take care of dynamic data
+        u_first = rhs.u_first;  // Copy over static data
+        u_last = rhs.u_last;
+        ID = rhs.ID;
+        books_out = rhs.books_out;
+        arr_size = rhs.arr_size;
+        if (books_out > 0)  // If dynamic array need be filled, then fill
+        {
+            s_array_ptr = new string[arr_size];
+            for (int i = 0; i < books_out; i++)
+            {
+                s_array_ptr[i] = rhs.s_array_ptr[i];
+            }
+        }
+    }
+    
+    return *this;   // Return the updated User object
 }
 
 

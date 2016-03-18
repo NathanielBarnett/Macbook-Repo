@@ -28,6 +28,10 @@
 		D84C17E81C987C7A00203A90 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		D84C17EF1C9911AF00203A90 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = SOURCE_ROOT; };
 		D84C17F01C99216600203A90 /* User.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = User.cpp; sourceTree = SOURCE_ROOT; };
+		D89B27311C9C536600D57AFE /* new_users.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = new_users.txt; path = "../../../../Dropbox/*UMKC/Programming & Problem Solving 2/Program 4/new_users.txt"; sourceTree = "<group>"; };
+		D89B27321C9C536600D57AFE /* checkouts.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = checkouts.txt; path = "../../../../Dropbox/*UMKC/Programming & Problem Solving 2/Program 4/checkouts.txt"; sourceTree = "<group>"; };
+		D89B27331C9C536600D57AFE /* checkins.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = checkins.txt; path = "../../../../Dropbox/*UMKC/Programming & Problem Solving 2/Program 4/checkins.txt"; sourceTree = "<group>"; };
+		D89B27341C9C536600D57AFE /* users.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = users.txt; path = "../../../../Dropbox/*UMKC/Programming & Problem Solving 2/Program 4/users.txt"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,10 @@
 				D84C17EF1C9911AF00203A90 /* User.h */,
 				D84C17F01C99216600203A90 /* User.cpp */,
 				D84C17E81C987C7A00203A90 /* main.cpp */,
+				D89B27311C9C536600D57AFE /* new_users.txt */,
+				D89B27321C9C536600D57AFE /* checkouts.txt */,
+				D89B27331C9C536600D57AFE /* checkins.txt */,
+				D89B27341C9C536600D57AFE /* users.txt */,
 			);
 			path = "C++ Testing Bay";
 			sourceTree = "<group>";
