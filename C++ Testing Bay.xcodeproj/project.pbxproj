@@ -9,17 +9,42 @@
 /* Begin PBXBuildFile section */
 		D84C17E91C987C7A00203A90 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D84C17E81C987C7A00203A90 /* main.cpp */; };
 		D84C17F11C99216600203A90 /* User.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D84C17F01C99216600203A90 /* User.cpp */; };
+		D89B27551C9C5DF600D57AFE /* checkins.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = D89B27511C9C5AA200D57AFE /* checkins.txt */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D89B27561C9C5DF600D57AFE /* checkouts.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = D89B27521C9C5AA200D57AFE /* checkouts.txt */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D89B27571C9C5DF600D57AFE /* new_users.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = D89B27531C9C5AA200D57AFE /* new_users.txt */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D89B27581C9C5DF600D57AFE /* users.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = D89B27541C9C5AA200D57AFE /* users.txt */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D89B275B1C9C5EEB00D57AFE /* checkins.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = D89B27511C9C5AA200D57AFE /* checkins.txt */; };
+		D89B275C1C9C5EEB00D57AFE /* checkouts.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = D89B27521C9C5AA200D57AFE /* checkouts.txt */; };
+		D89B275D1C9C5EEB00D57AFE /* new_users.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = D89B27531C9C5AA200D57AFE /* new_users.txt */; };
+		D89B275E1C9C5EEB00D57AFE /* users.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = D89B27541C9C5AA200D57AFE /* users.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		D84C17E31C987C7A00203A90 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
+			buildActionMask = 8;
+			dstPath = usr/share/man/man1;
+			dstSubfolderSpec = 16;
 			files = (
+				D89B27551C9C5DF600D57AFE /* checkins.txt in CopyFiles */,
+				D89B27561C9C5DF600D57AFE /* checkouts.txt in CopyFiles */,
+				D89B27571C9C5DF600D57AFE /* new_users.txt in CopyFiles */,
+				D89B27581C9C5DF600D57AFE /* users.txt in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 1;
+		};
+		D89B275A1C9C5EDD00D57AFE /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				D89B275B1C9C5EEB00D57AFE /* checkins.txt in CopyFiles */,
+				D89B275C1C9C5EEB00D57AFE /* checkouts.txt in CopyFiles */,
+				D89B275D1C9C5EEB00D57AFE /* new_users.txt in CopyFiles */,
+				D89B275E1C9C5EEB00D57AFE /* users.txt in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
@@ -85,6 +110,7 @@
 				D84C17E11C987C7A00203A90 /* Sources */,
 				D84C17E21C987C7A00203A90 /* Frameworks */,
 				D84C17E31C987C7A00203A90 /* CopyFiles */,
+				D89B275A1C9C5EDD00D57AFE /* CopyFiles */,
 			);
 			buildRules = (
 			);
