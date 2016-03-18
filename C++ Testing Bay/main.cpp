@@ -14,16 +14,27 @@ using namespace std;
 int main()
 {
     // Set up files
-    ifstream user_info_fh;
+    ifstream user_info_fh, checkouts_fh, checkins_fh;
     user_info_fh.open("users.txt");
-    ofstream 
+    checkouts_fh.open("checkouts.txt");
+    checkins_fh.open("checkins.txt");
+    
+    // Did files open succesfully?
     if (!user_info_fh.is_open())
     {
         cerr << "users.txt was unable to open" << endl;
-        exit(1);
+        //exit(1);
     }
-    
-    
+    if (!checkouts_fh.is_open())
+    {
+        cerr << "checkouts.txt was unable to open" << endl;
+        //exit(1);
+    }
+    if (!checkins_fh.is_open())
+    {
+        cerr << "checkins.txt was unable to open" << endl;
+        //exit(1);
+    }
 }
 
 

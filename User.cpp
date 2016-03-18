@@ -240,39 +240,3 @@ const User& User::operator=(const User& rhs)
 }
 
 
-/*
- private:
- string u_first, u_last;
- stringptr s_array_ptr;
- unsigned int ID, books_out, arr_size;
- bool ResizeArray() ; // Need to fill and write code for function
-// Constructor and class utility functions
-User(string first = "", string last = "", unsigned int ID_num = 0)
-{ u_first = first; u_last = last; ID = ID_num;}
-int GetIDNumber() const {return ID;}
-string GetFirstName() const {return u_first;}
-string GetLastName() const {return u_last;}
-string GetFullName() const;
-void SetIDNumber(unsigned int ID_num);   // Verify between correct range
-void SetFirstName(string first) {u_first = first;}
-void SetLastName(string last) {u_last = last;}
-int CheckoutCount() const {return books_out;}
-bool CheckOut(const string& BookIDCode);
-bool CheckIn(const string& BookIDCode);
-bool HasCheckedOut(const string& BookIDCode);
-void Clear(); // Clears all data for object
-
-// Overloeaded operators and friend functions
-friend const ostream& operator<<(ostream& output, const User& Patron);
-friend const istream& operator>>(istream& input, const User& Patron);
-const User operator+(unsigned int rhs);
-void operator+=(unsigned int rhs);
-bool operator==(const User& rhs);
-bool operator!=(const User& rhs);
-
-
-// Overloaded assignment operator and destructor
-
-const User& operator=(const User& rhs);
-~User();
-*/
