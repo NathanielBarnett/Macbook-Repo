@@ -51,6 +51,8 @@ int main()
     int num_users = 0, user_array_size = 5; // start the array at 5
     typedef User* UserPtr;
     UserPtr user_array = new User[user_array_size];
+    
+    // Read through users.txt and grab current list of users and their data
     while (!user_info_fh.eof())
            {
                User transit;
@@ -61,12 +63,26 @@ int main()
                }
                user_array[num_users] = transit;
                num_users++;
+
            }
+   
+    // Read through checkouts.txt and analyze the data appropraitely
+//    int transit_ID;
+//    string transit_book;
+//    while (!checkouts_fh.eof())
+//    {
+//        
+//        
+//        
+//    }
     
-    for (int i = 0; i < num_users; i++)
-    {
-        users2_fh << user_array[i];
-    }
+//
+//   for (int i = 0; i < (num_users - 1); i++)    // the last index is 1 before the number of users
+//    {
+//        cout << user_array[i];
+//    }
+//    
+    
     
     user_info_fh.close();
     checkouts_fh.close();
@@ -76,12 +92,13 @@ int main()
 
 
 
+// Resize function for User array
 int ResizeArray(User* &OldArray, int OldSize)
 {
     int TempSize = OldSize * 2;
     if (User* Newptr = new User[TempSize])
     {
-        for (int i = 0; i < OldArray->CheckoutCount(); i++)
+        for (int i = 0; i < OldSize; i++)
         {
             Newptr[i] = OldArray[i];
         }

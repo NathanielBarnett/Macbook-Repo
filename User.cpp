@@ -14,12 +14,14 @@ using namespace std;
 
 bool User::ResizeArray()
 {
-    int TempSize;
+    int TempSize = arr_size;
     do{
-        TempSize = arr_size * 2;
-    }while(TempSize < books_out);
+        TempSize = TempSize * 2;
+    }while(TempSize < books_needed);
     stringptr TempPtr = new string[TempSize];
     
+    if (TempPtr != nullptr)
+    {
     for (int i = 0; i < books_out; i++)
         {
             TempPtr[i] = s_array_ptr[i];
@@ -28,7 +30,10 @@ bool User::ResizeArray()
         s_array_ptr = TempPtr;
         arr_size = TempSize;
         return true;
-    
+    }
+    else{
+        throw User_exception("Can't resize array");
+    }
 }
 
 
@@ -89,6 +94,7 @@ bool User::CheckOut(const string& BookIDCode)
 
 bool User::CheckIn(const string& BookIDCode)
 {
+
     for (int i = 0; i < books_out; i++)
     {
         if (s_array_ptr[i] == BookIDCode)
@@ -150,13 +156,12 @@ const ostream& operator<<(ostream& output, const User& Patron)
 
 const istream& operator>>(istream& input, User& Patron)
 {
-    int Books_Needed;
-    Patron.Clear();
-    input >> Patron.ID >> Patron.u_first >> Patron.u_last >> Books_Needed;
-    if (Books_Needed > 0)
+    //Patron.Clear();
+    input >> Patron.ID >> Patron.u_first >> Patron.u_last >> Patron.books_needed;
+    if (Patron.books_needed > 0)
     {
         string Book;
-        for (int i = 0; i < Books_Needed; i++)
+        for (int i = 0; i < Patron.books_needed; i++)
         {
             input >> Book;
             Patron.CheckOut(Book);
@@ -215,7 +220,7 @@ User::~User()
 
 User::User(const User& rhs)
 {
-    s_array_ptr = nullptr;
+    //s_array_ptr = nullptr;
     *this = rhs;
 }
 
@@ -225,8 +230,9 @@ const User& User::operator=(const User& rhs)
     {
         this->~User();  // Take care of dynamic data
         u_first = rhs.u_first;  // Copy over static data
-        //u_last = rhs.u_last;
+        u_last = rhs.u_last;
         ID = rhs.ID;
+        books_needed = rhs.books_needed;
         books_out = rhs.books_out;
         arr_size = rhs.arr_size;
         if (books_out > 0)  // If dynamic array need be filled, then fill
