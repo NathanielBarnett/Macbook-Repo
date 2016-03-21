@@ -1,10 +1,8 @@
-//
-//  User.cpp
-//  C++ Testing Bay
-//
-//  Created by Nathan on 3/16/16.
-//  Copyright © 2016 Nathan. All rights reserved.
-//
+/*
+ Name: Nathaniel A. Barnett
+ Date: 20/3/2016
+ Program #4
+*/
 
 #include "User.h"
 #include <iostream>

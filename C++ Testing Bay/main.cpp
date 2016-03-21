@@ -1,10 +1,16 @@
-//
-//  main.cpp
-//  C++ Testing Bay
-//
-//  Created by Nathan on 3/15/16.
-//  Copyright © 2016 Nathan. All rights reserved.
-//
+/*
+Name: Nathaniel A. Barnett
+Date: 20/3/2016
+Program #4
+Algorithm:
+1. Read in date from User.txt file, and store the individual user's data.
+2. Read through checkouts.txt and checkout the books read in from file
+    to the users specified in file.
+3. Read through checkins.txt and check in the books from the users who 
+    have them checked out to their account.
+4. Write the updated users and their data to the output file, and properly format it.
+5. For steps 1-4, if errors occur, then output the error message to cerr.
+*/
 #include "User.h"
 #include <iostream>
 #include <fstream>
@@ -138,8 +144,6 @@ int main()
                 }
                 users_with_item++;
             }
-            
-            
         }
         if (!user_was_found)
         {
@@ -152,15 +156,6 @@ int main()
     {
         users2_fh << user_array[i];
     }
-    
-    
-//    
-//       for (int i = 0; i < (num_users - 1); i++)    // the last index is 1 before the number of users
-//        {
-//            cout << user_array[i];
-//        }
-//    
-    
     
     user_info_fh.close();
     checkouts_fh.close();

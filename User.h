@@ -1,10 +1,8 @@
-//
-//  User.h
-//  C++ Testing Bay
-//
-//  Created by Nathan on 3/15/16.
-//  Copyright © 2016 Nathan. All rights reserved.
-//
+/*
+ Name: Nathaniel A. Barnett
+ Date: 20/3/2016
+ Program #4
+ */
 
 #ifndef User_h
 #define User_h
