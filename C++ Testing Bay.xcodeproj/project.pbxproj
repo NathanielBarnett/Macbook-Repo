@@ -17,6 +17,7 @@
 		D89B275C1C9C5EEB00D57AFE /* checkouts.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = D89B27521C9C5AA200D57AFE /* checkouts.txt */; };
 		D89B275D1C9C5EEB00D57AFE /* new_users.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = D89B27531C9C5AA200D57AFE /* new_users.txt */; };
 		D89B275E1C9C5EEB00D57AFE /* users.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = D89B27541C9C5AA200D57AFE /* users.txt */; };
+		D8D4C63C1C9F89F700A8FB6E /* users2.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = D8D4C63B1C9F89F700A8FB6E /* users2.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -39,6 +40,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
+				D8D4C63C1C9F89F700A8FB6E /* users2.txt in CopyFiles */,
 				D89B275B1C9C5EEB00D57AFE /* checkins.txt in CopyFiles */,
 				D89B275C1C9C5EEB00D57AFE /* checkouts.txt in CopyFiles */,
 				D89B275D1C9C5EEB00D57AFE /* new_users.txt in CopyFiles */,
@@ -57,6 +59,7 @@
 		D89B27521C9C5AA200D57AFE /* checkouts.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = checkouts.txt; sourceTree = "<group>"; };
 		D89B27531C9C5AA200D57AFE /* new_users.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = new_users.txt; sourceTree = "<group>"; };
 		D89B27541C9C5AA200D57AFE /* users.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = users.txt; sourceTree = "<group>"; };
+		D8D4C63B1C9F89F700A8FB6E /* users2.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = users2.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +92,7 @@
 		D84C17E71C987C7A00203A90 /* C++ Testing Bay */ = {
 			isa = PBXGroup;
 			children = (
+				D8D4C63B1C9F89F700A8FB6E /* users2.txt */,
 				D84C17EF1C9911AF00203A90 /* User.h */,
 				D84C17F01C99216600203A90 /* User.cpp */,
 				D84C17E81C987C7A00203A90 /* main.cpp */,

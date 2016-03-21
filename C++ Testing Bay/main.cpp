@@ -144,16 +144,16 @@ int main()
     
     for (int i = 0; i < (num_users - 1); i++)
     {
-        users2_fh << user_array[i];
+        cout << user_array[i];
     }
     
     
-    //
-    //   for (int i = 0; i < (num_users - 1); i++)    // the last index is 1 before the number of users
-    //    {
-    //        cout << user_array[i];
-    //    }
-    //
+    
+       for (int i = 0; i < (num_users - 1); i++)    // the last index is 1 before the number of users
+        {
+            cout << user_array[i];
+        }
+    
     
     
     user_info_fh.close();
