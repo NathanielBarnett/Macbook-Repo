@@ -43,7 +43,7 @@ public:
     bool HasCheckedOut(const string& BookIDCode) const;
     void Clear(); // Clears all data for object
     
-    // Overloeaded operators and friend functions
+    // Overloaded operators and friend functions
     friend const ostream& operator<<(ostream& output, const User& Patron);
     friend const istream& operator>>(istream& input, User& Patron);
     const User operator+(string rhs);
@@ -63,7 +63,7 @@ class User_exception
 {
 private:
     string message;
-
+    
 public:
     User_exception(const string& msg = "exception in user class") {message = msg;}
     string what() const {return message;}

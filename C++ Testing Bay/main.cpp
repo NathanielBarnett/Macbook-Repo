@@ -9,6 +9,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <cstdlib>
 using namespace std;
 
 
@@ -54,40 +55,112 @@ int main()
     
     // Read through users.txt and grab current list of users and their data
     while (!user_info_fh.eof())
-           {
-               User transit;
-               user_info_fh >> transit;    //read in a user, check if array need be resized
-               if ((num_users + 1) > user_array_size)
-               {
-                   user_array_size = ResizeArray(user_array, user_array_size);
-               }
-               user_array[num_users] = transit;
-               num_users++;
-
-           }
-   
-    // Read through checkouts.txt and analyze the data appropraitely
-//    int transit_ID;
-//    string transit_book;
-//    while (!checkouts_fh.eof())
-//    {
-//        
-//        
-//        
-//    }
+    {
+        User transit;
+        user_info_fh >> transit;    //read in a user, check if array need be resized
+        
+        try {
+            
+            if ((num_users + 1) > user_array_size)
+            {
+                user_array_size = ResizeArray(user_array, user_array_size);
+            }
+            
+        } catch (User_exception u_error) {
+            cerr << u_error.what() << endl;
+        }
+        
+        user_array[num_users] = transit;
+        num_users++;
+        
+    }
     
-//
-//   for (int i = 0; i < (num_users - 1); i++)    // the last index is 1 before the number of users
-//    {
-//        cout << user_array[i];
-//    }
-//    
+    //Read through checkouts.txt and analyze the data appropriately
+    int transit_ID;
+    string transit_book;
+    bool user_was_found = false;
+    while (!checkouts_fh.eof())
+    {
+        checkouts_fh >> transit_ID >> transit_book;
+        for (int i = 0; i < (num_users - 1); i++)   // walk through user array
+        {
+            if (user_array[i].GetIDNumber() == transit_ID)  // if found the right user
+            {
+                if (!user_array[i].HasCheckedOut(transit_book)) // if they have the book checked out
+                {
+                    user_array[i].CheckIn(transit_book);
+                    user_was_found = true;
+                }
+                else if (user_array[i].HasCheckedOut(transit_book))
+                {
+                    cerr << "User " << transit_ID << " has already checked out item "
+                    << transit_book << endl;
+                }
+            }
+        }
+        
+        if (!user_was_found)
+        {
+            cerr << "No user can be found with this ID number: " << transit_ID << endl;
+        }
+    }
+    
+    
+    
+    // Read through checkins.txt and analyze the data appropriately
+    // *NOTE* Reuse variables 'transit_book' and 'user_was_found'
+    int users_with_item = 0;
+    user_was_found = false;
+    while (!checkins_fh.eof())
+    {
+        checkins_fh >> transit_book;
+        for (int i = 0; i < (num_users - 1); i++)
+        {
+            if (user_array[i].HasCheckedOut(transit_book))
+            {
+                user_array[i].CheckIn(transit_book);
+                user_was_found = true;
+                users_with_item++;
+                if (users_with_item == 1)
+                {
+                    cerr << endl << "This item " << transit_book
+                    << " is checked out by more than one user: "
+                    << user_array[i].GetIDNumber() << endl;
+                }
+                else if (users_with_item > 1)
+                {
+                    cerr << user_array[i].GetIDNumber() << endl;
+                }
+            }
+            
+            
+        }
+        if (!user_was_found)
+        {
+            cerr << "No User was found with this item checked out: "
+            << transit_book << endl;
+        }
+    }
+    
+    for (int i = 0; i < (num_users - 1); i++)
+    {
+        users2_fh << user_array[i];
+    }
+    
+    
+    //
+    //   for (int i = 0; i < (num_users - 1); i++)    // the last index is 1 before the number of users
+    //    {
+    //        cout << user_array[i];
+    //    }
+    //
     
     
     user_info_fh.close();
     checkouts_fh.close();
     checkins_fh.close();
     users2_fh.close();
+    return 0;
 }
 
 
@@ -111,10 +184,4 @@ int ResizeArray(User* &OldArray, int OldSize)
         throw (User_exception("User array cannot be resized"));
     }
 }
-
-
-
-
-
-
 

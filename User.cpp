@@ -22,7 +22,7 @@ bool User::ResizeArray()
     
     if (TempPtr != nullptr)
     {
-    for (int i = 0; i < books_out; i++)
+        for (int i = 0; i < books_out; i++)
         {
             TempPtr[i] = s_array_ptr[i];
         }
@@ -63,20 +63,6 @@ bool User::CheckOut(const string& BookIDCode)
         books_out++;
     }
     
-    try
-    {
-        if ((books_out + 1) > arr_size) // if number of items in array are size of array
-        {
-            ResizeArray();
-        }
-
-    }
-    catch (User_exception err)
-    {
-        cerr << err.what() << endl;
-        return checked_out;
-    }
-  
     for (int i = 0; i < books_out; i++)  // is ID in array?
     {
         if (s_array_ptr[i] == BookIDCode)
@@ -84,6 +70,22 @@ bool User::CheckOut(const string& BookIDCode)
             return checked_out;
         }
     }
+    
+    try
+    {
+        if ((books_out + 1) > arr_size) // if number of items in array are size of array
+        {
+            ResizeArray();
+        }
+        
+    }
+    catch (User_exception err)
+    {
+        cerr << err.what() << endl;
+        return checked_out;
+    }
+    
+    
     
     s_array_ptr[books_out] = BookIDCode;
     books_out++;
@@ -94,7 +96,7 @@ bool User::CheckOut(const string& BookIDCode)
 
 bool User::CheckIn(const string& BookIDCode)
 {
-
+    
     for (int i = 0; i < books_out; i++)
     {
         if (s_array_ptr[i] == BookIDCode)
