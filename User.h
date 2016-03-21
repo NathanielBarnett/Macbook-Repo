@@ -30,7 +30,7 @@ public:
     User(string first = "", string last = "", unsigned int ID_num = 0)
     { u_first = first; u_last = last; ID = ID_num; s_array_ptr = nullptr;
         books_out = 0; books_needed = 0; arr_size = 0; }
-    int GetIDNumber() const {return ID;}
+    unsigned int GetIDNumber() const {return ID;}
     string GetFirstName() const {return u_first;}
     string GetLastName() const {return u_last;}
     string GetFullName() const;

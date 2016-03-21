@@ -59,7 +59,7 @@
 		D89B27521C9C5AA200D57AFE /* checkouts.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = checkouts.txt; sourceTree = "<group>"; };
 		D89B27531C9C5AA200D57AFE /* new_users.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = new_users.txt; sourceTree = "<group>"; };
 		D89B27541C9C5AA200D57AFE /* users.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = users.txt; sourceTree = "<group>"; };
-		D8D4C63B1C9F89F700A8FB6E /* users2.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = users2.txt; sourceTree = "<group>"; };
+		D8D4C63B1C9F89F700A8FB6E /* users2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = users2.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */

@@ -147,7 +147,7 @@ const ostream& operator<<(ostream& output, const User& Patron)
     output << Patron.books_out << endl;
     if (Patron.books_out > 0)
     {
-        for (int i = 0; i < Patron.books_out; i++)
+        for (int i = 0; i < Patron.arr_size; i++)
         {
             output << Patron.s_array_ptr[i] << " ";
         }

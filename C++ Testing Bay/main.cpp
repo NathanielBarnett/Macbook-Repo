@@ -78,28 +78,33 @@ int main()
     //Read through checkouts.txt and analyze the data appropriately
     int transit_ID;
     string transit_book;
-    bool user_was_found = false;
+    bool user_was_not_found = true;
     while (!checkouts_fh.eof())
     {
+        
         checkouts_fh >> transit_ID >> transit_book;
         for (int i = 0; i < (num_users - 1); i++)   // walk through user array
         {
             if (user_array[i].GetIDNumber() == transit_ID)  // if found the right user
             {
-                if (!user_array[i].HasCheckedOut(transit_book)) // if they have the book checked out
-                {
-                    user_array[i].CheckIn(transit_book);
-                    user_was_found = true;
-                }
-                else if (user_array[i].HasCheckedOut(transit_book))
+                if (user_array[i].HasCheckedOut(transit_book)) // if they have the book checked out
                 {
                     cerr << "User " << transit_ID << " has already checked out item "
                     << transit_book << endl;
+                    user_was_not_found = false;
+                    
+                    
+                }
+                else if (!user_array[i].HasCheckedOut(transit_book))
+                {
+                    user_array[i].CheckOut(transit_book);
+                    user_was_not_found = false;
+                    
                 }
             }
         }
         
-        if (!user_was_found)
+        if (user_was_not_found)
         {
             cerr << "No user can be found with this ID number: " << transit_ID << endl;
         }
@@ -108,11 +113,12 @@ int main()
     
     
     // Read through checkins.txt and analyze the data appropriately
-    // *NOTE* Reuse variables 'transit_book' and 'user_was_found'
-    int users_with_item = 0;
-    user_was_found = false;
+    // *NOTE* Reuse variables 'transit_book'
+    int users_with_item;
+    bool user_was_found = false;
     while (!checkins_fh.eof())
     {
+        users_with_item = 0;
         checkins_fh >> transit_book;
         for (int i = 0; i < (num_users - 1); i++)
         {
@@ -120,7 +126,6 @@ int main()
             {
                 user_array[i].CheckIn(transit_book);
                 user_was_found = true;
-                users_with_item++;
                 if (users_with_item == 1)
                 {
                     cerr << endl << "This item " << transit_book
@@ -131,6 +136,7 @@ int main()
                 {
                     cerr << user_array[i].GetIDNumber() << endl;
                 }
+                users_with_item++;
             }
             
             
@@ -144,16 +150,16 @@ int main()
     
     for (int i = 0; i < (num_users - 1); i++)
     {
-        cout << user_array[i];
+        users2_fh << user_array[i];
     }
     
     
-    
-       for (int i = 0; i < (num_users - 1); i++)    // the last index is 1 before the number of users
-        {
-            cout << user_array[i];
-        }
-    
+//    
+//       for (int i = 0; i < (num_users - 1); i++)    // the last index is 1 before the number of users
+//        {
+//            cout << user_array[i];
+//        }
+//    
     
     
     user_info_fh.close();
